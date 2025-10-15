@@ -1,0 +1,26 @@
+<?php
+// package.json - Node.js Dependencies (Optional)
+?>
+{
+  "name": "spacenet-saas",
+  "version": "1.0.0",
+  "description": "SaaS WiFi Billing System for ISPs",
+  "scripts": {
+    "build": "echo 'Building assets...'",
+    "watch": "echo 'Watching for changes...'",
+    "test": "echo 'Running tests...'"
+  },
+  "keywords": [
+    "wifi",
+    "billing",
+    "saas",
+    "mikrotik",
+    "kenya"
+  ],
+  "author": "SPACE NET Team",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "^5.3.0",
+    "chart.js": "^4.4.0"
+  }
+}
