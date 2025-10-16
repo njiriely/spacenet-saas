@@ -1,4 +1,5 @@
 <?php
+require_once 'DatabaseConfig.php';
 // includes/Database.php
 class Database {
     private static $instance = null;

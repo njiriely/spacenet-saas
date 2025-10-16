@@ -1,6 +1,4 @@
-<?php
-// composer.json - PHP Dependencies (Optional)
-?>
+
 {
     "name": "spacenet/saas-wifi-billing",
     "description": "SaaS WiFi Billing System for Internet Service Providers in Kenya",

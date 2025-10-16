@@ -2,8 +2,8 @@
 // api/payment-status.php - Payment Status Checker
 header('Content-Type: application/json');
 
-require_once '../includes/Database.php';
-require_once '../includes/Billing.php';
+require_once __DIR__ . '/../../includes/database.php';
+require_once __DIR__ . '/../../includes/billing.php';
 
 try {
     $transactionCode = $_GET['code'] ?? null;
@@ -43,7 +43,7 @@ try {
         
         if ($sessionData) {
             $response['username'] = $sessionData['username'];
-            $response['password'] = 'auto_' . substr(md5($transactionCode), 0, 8);
+            $response['password'] = 'auto_' . substr(bin2hex(random_bytes(8)), 0, 8); // Generate a secure random password
             $response['package_name'] = $sessionData['package_name'];
             $response['speed'] = $sessionData['speed_limit'];
             $response['duration'] = $sessionData['duration_value'] . ' ' . $sessionData['duration_type'];
