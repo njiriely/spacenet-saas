@@ -1,8 +1,8 @@
 <?php
 // tenant/reports.php - Detailed Reporting for ISPs
 session_start();
-require_once '../includes/Database.php';
-require_once '../includes/Auth.php';
+require_once '../includes/database.php';
+require_once '../includes/auth.php';
 
 $auth = new Auth();
 $auth->requireLogin();
@@ -348,8 +348,8 @@ $summaryStats = $db->query("
                     <div class="h4 <?php
 // admin/analytics.php - Advanced Analytics Dashboard
 session_start();
-require_once '../includes/Database.php';
-require_once '../includes/Auth.php';
+require_once '../includes/database.php';
+require_once '../includes/auth.php';
 
 $auth = new Auth();
 $auth->requireLogin();

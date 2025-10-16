@@ -1,13 +1,13 @@
 <?php
 // customer/index.php - Customer Facing Portal
 session_start();
-require_once '../includes/Database.php';
+require_once '../includes/database.php';
 require_once '../includes/Package.php';
 
 // Get tenant info from subdomain or parameter
 $subdomain = $_GET['tenant'] ?? 'demo'; // For demo purposes
 
-$db = Database::getInstance();
+$db = \SpaceNet\Database::getInstance();
 $tenant = $db->query("SELECT * FROM tenants WHERE subdomain = ? AND status IN ('trial', 'active')", [$subdomain])->fetch();
 
 if (!$tenant) {

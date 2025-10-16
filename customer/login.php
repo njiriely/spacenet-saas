@@ -1,7 +1,7 @@
 <?php
 // customer/login.php - Customer Account System
 session_start();
-require_once '../includes/Database.php';
+require_once '../includes/database.php';
 
 $error = '';
 $success = '';
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $username = $_POST['username'];
     $password = $_POST['password'];
     
-    $db = Database::getInstance();
+    $db = \SpaceNet\Database::getInstance();
     $customer = $db->query(
         "SELECT c.*, t.subdomain FROM customers c 
          JOIN tenants t ON c.tenant_id = t.id 
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     if ($_POST['password'] !== $_POST['confirm_password']) {
         $error = 'Passwords do not match';
     } else {
-        $db = Database::getInstance();
+        $db = \SpaceNet\Database::getInstance();
         
         // Check if customer exists
         $existing = $db->query("SELECT id FROM customers WHERE username = ?", [$username])->fetch();

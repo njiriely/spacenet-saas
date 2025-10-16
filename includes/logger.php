@@ -1,14 +1,13 @@
-// includes/Logger.php - Advanced Logging System
 <?php
+namespace SpaceNet;
+// includes/Logger.php - Advanced Logging System
 class Logger {
     private $logDir;
     private $logFile;
     private $maxFileSize;
     private $maxFiles;
     
-    public function __construct($logDir = '../logs', $logFile = 'app.log') {
-        $this->logDir = $logDir;
-        $this->logFile = $logFile;
+  public function __construct($logDir = 'logs', $logFile = 'app.log') {        $this->logDir = dirname(__DIR__) . '/' . $logDir;      $this->logFile = $logFile;
         $this->maxFileSize = 10 * 1024 * 1024; // 10MB
         $this->maxFiles = 5;
         

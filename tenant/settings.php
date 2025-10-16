@@ -1,8 +1,8 @@
 <?php
 // tenant/settings.php - Tenant Settings
 session_start();
-require_once '../includes/Database.php';
-require_once '../includes/Auth.php';
+require_once '../includes/database.php';
+require_once '../includes/auth.php';
 
 $auth = new Auth();
 $auth->requireLogin();

@@ -1,10 +1,12 @@
 <?php
 // includes/Tenant.php
+namespace SpaceNet;
+
 class Tenant {
     private $db;
     
     public function __construct() {
-        $this->db = Database::getInstance();
+        $this->db = \SpaceNet\Database::getInstance();
     }
     
     public function create($data) {
@@ -12,7 +14,7 @@ class Tenant {
         $subdomain = $this->generateSubdomain($data['company_name']);
         
         // Calculate trial end date
-        $trialEndDate = date('Y-m-d H:i:s', strtotime('+' . AppConfig::TRIAL_DAYS . ' days'));
+        $trialEndDate = date('Y-m-d H:i:s', strtotime('+' . \AppConfig::TRIAL_DAYS . ' days'));
         
         try {
             $this->db->getConnection()->beginTransaction();
@@ -141,6 +143,12 @@ class Tenant {
         
         // Store password for welcome email
         $data['temp_password'] = $password;
+        
+        // Log the password for demonstration purposes
+        // NOTE: In a real application, this should be removed for security.
+        $logger = new \SpaceNet\Logger();
+        $logger->debug("Tenant Admin Password for " . $data['email'] . ": " . $password);
+        
         return $password;
     }
     

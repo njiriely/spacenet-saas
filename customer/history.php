@@ -1,7 +1,7 @@
 <?php
 // customer/history.php - Full Purchase History
 session_start();
-require_once '../includes/Database.php';
+require_once '../includes/database.php';
 
 // Check if customer is logged in
 if (!isset($_SESSION['customer_logged_in']) || !isset($_SESSION['customer_id'])) {
@@ -9,7 +9,7 @@ if (!isset($_SESSION['customer_logged_in']) || !isset($_SESSION['customer_id']))
     exit;
 }
 
-$db = Database::getInstance();
+$db = \SpaceNet\Database::getInstance();
 
 // Get customer data
 $customer = $db->query(
