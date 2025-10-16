@@ -1,8 +1,8 @@
 <?php
 // login.php - Login Page
 session_start();
-require_once 'includes/Database.php';
-require_once 'includes/Auth.php';
+require_once 'includes/database.php';
+require_once 'includes/auth.php';
 
 $error = '';
 
@@ -11,12 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     $userType = $_POST['user_type'] ?? 'tenant';
     
-    $auth = new Auth();
+    $auth = new SpaceNet\Auth();
     if ($auth->login($email, $password, $userType)) {
         if ($userType === 'admin') {
-            header('Location: admin/');
+            header('Location: admin/index.php');
         } else {
-            header('Location: tenant/');
+            header('Location: tenant/index.php');
         }
         exit;
     } else {

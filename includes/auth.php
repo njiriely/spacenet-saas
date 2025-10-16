@@ -1,10 +1,13 @@
 <?php
+namespace SpaceNet;
+
 // includes/Auth.php
+
 class Auth {
     private $db;
     
     public function __construct() {
-        $this->db = Database::getInstance();
+        $this->db = \SpaceNet\Database::getInstance();
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -22,7 +25,7 @@ class Auth {
         }
         
         $stmt = $this->db->query($sql, [$email]);
-        if ($user = $stmt->fetch()) {
+if ($user = $stmt->fetch()) {
             if (password_verify($password, $user['password_hash'])) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_type'] = $userType;

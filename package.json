@@ -1,6 +1,3 @@
-<?php
-// package.json - Node.js Dependencies (Optional)
-?>
 {
   "name": "spacenet-saas",
   "version": "1.0.0",
